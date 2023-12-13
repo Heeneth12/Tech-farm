@@ -1,8 +1,7 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Body from "../components/Body";
-import Footer from "../components/Fotter";
-import TeamSection from "../components/TeamSection";
+
 import ContentSection from "../components/ContentSection";
 import About from "../components/About";
 

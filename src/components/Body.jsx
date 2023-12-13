@@ -7,8 +7,8 @@ const Body = () => {
 
   const [paragraphs, setParagraphs] = useState([
     "Integrate Tech Into Your Farm To Improve Crop Life",
-    "create a dynamic and collaborative community for farmers and buyers",
-    "that unites farmers and buyers, creating a virtual marketplace where both parties can engage directly",
+    "Create a dynamic and collaborative community for farmers and buyers",
+    "That unites farmers and buyers, creating a virtual marketplace where both parties can engage directly",
   ]);
   const [currentParagraph, setCurrentParagraph] = useState(0);
 
