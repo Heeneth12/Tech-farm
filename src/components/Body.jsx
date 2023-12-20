@@ -32,7 +32,7 @@ const Body = () => {
   useEffect(() => {
     const paragraphInterval = setInterval(() => {
       setCurrentParagraph((prev) => (prev + 1) % paragraphs.length);
-    }, 5000); // Change paragraph every 5 seconds
+    }, 7000); // Change paragraph every 5 seconds
 
     return () => clearInterval(paragraphInterval);
   }, [paragraphs]);
@@ -68,7 +68,7 @@ const Body = () => {
   return (
     <div
       className="relative bg-gray-100 overflow-hidden"
-      style={{ height: "70vh" }}
+      style={{ height: "70vh", position: "relative" }}
     >
       <img
         src={homeImage}
@@ -77,7 +77,13 @@ const Body = () => {
       />
       <div
         className="absolute inset-0 flex flex-col items-center justify-center text-left"
-        style={{ padding: "20px" }} // Adjust the overall padding as needed
+        style={{
+          padding: "20px",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }} // Adjust the overall padding as needed
       >
         <p
           className="text-white text-4xl font-bold"

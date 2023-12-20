@@ -3,9 +3,13 @@ import React from "react";
 const Footer = () => {
   return (
     <footer
-      className=" py-4"
+      className=" py-4 mb-0"
       style={{
         backgroundColor: "#34ad54",
+        position: "fixed",
+        width: "100%",
+        bottom: 0,
+        textAlign: "center",
       }}
     >
       <div className="container mx-auto">

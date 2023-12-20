@@ -1,17 +1,13 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Fotter";
-import CropRec from "../components/CropRec";
-import ServicesSideBar from "../components/ServicesSideBar";
-import SoilType from "../components/SoilType";
+import ServicesBody from "../components/ServicesBody";
 
 function Services() {
   return (
     <>
       <NavBar />
-      <ServicesSideBar />
-      <CropRec />
-      <SoilType />
+      <ServicesBody />
       <Footer />
     </>
   );

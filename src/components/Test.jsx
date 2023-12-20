@@ -42,6 +42,7 @@ function Test() {
               <p className="text-sm mb-4">{item.details}</p>
               <p className="text-sm mb-2">{item.discription}</p>
               <p className="text-xs">Updated: {item.updated}</p>
+              <button>add to cort</button>
             </div>
           </div>
         </div>

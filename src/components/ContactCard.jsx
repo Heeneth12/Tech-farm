@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Notification from "./Notification";
 import PocketBase from "pocketbase";
 
 class ContactCard extends Component {
@@ -48,36 +49,93 @@ class ContactCard extends Component {
 
   render() {
     return (
-      <div className="contact-container  flex bg-gray-100 rounded-md p-8 shadow-lg">
-        <div className="details flex-1 p-4">
-          <h2 className="text-2xl font-bold mb-4">Contact Details</h2>
-        </div>
-
+      <>
+        <Notification message="Thanks for contacting us..!" />
         <div
-          className="form flex-1  p-4 bg-white  rounded-md"
+          className="contact-container rounded-md  "
           style={{
-            height: "50vh",
+            height: "90vh",
+            margin: "24px",
           }}
         >
-          <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-          <form onSubmit={this.handleSubmit}>
-            <div className="mb-4 flex">
-              <div className="w-1/2 pr-2">
+          <div
+            className="p-4 bg-white  rounded-md"
+            style={{
+              height: "50vh",
+              width: "100%",
+            }}
+          >
+            <h2 className="text-2xl font-bold mb-4 p-8">Contact Us</h2>
+            <form onSubmit={this.handleSubmit}>
+              <div className="mb-4 flex">
+                <div className="w-1/2 pr-2">
+                  <label
+                    htmlFor="first-name"
+                    className="block text-sm font-medium text-gray-700"
+                    style={{
+                      float: "left",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    placeholder="name"
+                    name="firstName"
+                    value={this.state.firstName}
+                    onChange={this.handleChange}
+                    style={{
+                      borderWidth: 2,
+                    }}
+                    className="mt-1 p-2 w-full rounded-md border border-gray-300 focus:ring focus:ring-indigo-200"
+                    required
+                  />
+                </div>
+                <div className="w-1/2 pl-2">
+                  <label
+                    htmlFor="last-name"
+                    style={{
+                      float: "left",
+                      fontWeight: "bold",
+                    }}
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="last-name"
+                    name="lastName"
+                    value={this.state.lastName}
+                    style={{
+                      borderWidth: 2,
+                    }}
+                    onChange={this.handleChange}
+                    className="mt-1 p-2 w-full rounded-md border border-gray-300 focus:ring focus:ring-indigo-200"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="mb-4">
                 <label
-                  htmlFor="first-name"
-                  className="block text-sm font-medium text-gray-700"
+                  htmlFor="email"
                   style={{
                     float: "left",
                     fontWeight: "bold",
                   }}
+                  className="block text-sm font-medium text-gray-700"
                 >
-                  First Name
+                  Email
                 </label>
                 <input
-                  type="text"
-                  id="first-name"
-                  name="firstName"
-                  value={this.state.firstName}
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Gmail"
+                  value={this.state.email}
                   onChange={this.handleChange}
                   style={{
                     borderWidth: 2,
@@ -86,116 +144,69 @@ class ContactCard extends Component {
                   required
                 />
               </div>
-              <div className="w-1/2 pl-2">
+
+              <div className="mb-4">
                 <label
-                  htmlFor="last-name"
+                  htmlFor="phone-number"
                   style={{
                     float: "left",
                     fontWeight: "bold",
                   }}
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Last Name
+                  Phone Number
                 </label>
                 <input
-                  type="text"
-                  id="last-name"
-                  name="lastName"
-                  value={this.state.lastName}
+                  type="tel"
+                  id="phone-number"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  value={this.state.phoneNumber}
+                  onChange={this.handleChange}
                   style={{
                     borderWidth: 2,
                   }}
-                  onChange={this.handleChange}
                   className="mt-1 p-2 w-full rounded-md border border-gray-300 focus:ring focus:ring-indigo-200"
-                  required
                 />
               </div>
-            </div>
 
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                style={{
-                  float: "left",
-                  fontWeight: "bold",
-                }}
-                className="block text-sm font-medium text-gray-700"
+              <div className="mb-4">
+                <label
+                  htmlFor="message"
+                  style={{
+                    float: "left",
+                    fontWeight: "bold",
+                  }}
+                  className="block text-sm font-medium-text-gray-700"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Message"
+                  value={this.state.message}
+                  onChange={this.handleChange}
+                  rows="4"
+                  style={{
+                    borderWidth: 2,
+                  }}
+                  className="mt-1 p-2 w-full rounded-md border border-gray-300 focus:ring focus:ring-indigo-200"
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                onClick={this.handleSubmit}
+                className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
               >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={this.state.email}
-                onChange={this.handleChange}
-                style={{
-                  borderWidth: 2,
-                }}
-                className="mt-1 p-2 w-full rounded-md border border-gray-300 focus:ring focus:ring-indigo-200"
-                required
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="phone-number"
-                style={{
-                  float: "left",
-                  fontWeight: "bold",
-                }}
-                className="block text-sm font-medium text-gray-700"
-              >
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                id="phone-number"
-                name="phoneNumber"
-                value={this.state.phoneNumber}
-                onChange={this.handleChange}
-                style={{
-                  borderWidth: 2,
-                }}
-                className="mt-1 p-2 w-full rounded-md border border-gray-300 focus:ring focus:ring-indigo-200"
-              />
-            </div>
-
-            <div className="mb-4">
-              <label
-                htmlFor="message"
-                style={{
-                  float: "left",
-                  fontWeight: "bold",
-                }}
-                className="block text-sm font-medium-text-gray-700"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={this.state.message}
-                onChange={this.handleChange}
-                rows="4"
-                style={{
-                  borderWidth: 2,
-                }}
-                className="mt-1 p-2 w-full rounded-md border border-gray-300 focus:ring focus:ring-indigo-200"
-                required
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              onClick={this.handleSubmit}
-              className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
-            >
-              Send Message
-            </button>
-          </form>
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

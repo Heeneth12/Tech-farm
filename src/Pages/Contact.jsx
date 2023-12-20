@@ -1,16 +1,14 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import ContactCard from "../components/ContactCard";
-import About from "../components/About";
-import Notification from "../components/Notification";
+import Footer from "../components/Fotter";
 
 function Contact() {
   return (
     <>
       <NavBar />
       <ContactCard />
-      <Notification />
-      <About />
+      <Footer />
     </>
   );
 }
